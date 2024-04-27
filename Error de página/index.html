@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error de página</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://i.ibb.co/K9s0gB4/illustrator-planet-ai-art-4k-84-1920x1080.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Opacidad aumentada */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            display: inline-block;
+            width: 200px;
+            padding: 15px 0;
+            background-color: #007bff;
+            color: #fff;
+            border: 2px solid transparent;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:last-child {
+            margin-bottom: 0;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>¡Ups! Algo salió mal.</h1>
+        <p>Lo sentimos, la página que estás buscando no está disponible en este momento.</p>
+        <div class="button-container">
+            <button onclick="window.location.href=window.location.href">Volver a intentar</button>
+            <button onclick="window.location.href='https://tu-url-de-soporte.com'">Soporte</button>
+        </div>
+    </div>
+</body>
+</html>
