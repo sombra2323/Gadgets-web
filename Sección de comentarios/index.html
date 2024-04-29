@@ -6,25 +6,27 @@
 <title>Sección de Comentarios</title>
 <style>
 body {
-  background-image: url('https://i.ibb.co/V307XtW/river-landscape-illustration-with-view-mountains-green-fields-trees-and-forest-surrounding-the-river.jpg');
+  background-image: url('https://i.ibb.co/Dt772YN/c8e5218c-17fb-41bd-bbc5-dac10a6e5f89.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   font-family: Arial, sans-serif;
   padding: 0;
-  height: 100vh; /* Ajusta la altura para que cubra toda la pantalla */
+  min-height: 100vh; /* Ajusta la altura mínima de la ventana visible */
 }
 
 .container {
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
-  background-color: rgba(255, 255, 255, 0.7); /* Cambia el valor de alfa para ajustar la opacidad */
+  background-color: rgba(255, 255, 255, 0.116); /* Cambia el valor de alfa para ajustar la opacidad */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px; /* Margen inferior para evitar que los comentarios se superpongan con el pie de página */
 }
 
 .form-group {
   display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
@@ -32,22 +34,25 @@ body {
 
 .input-group {
   flex-grow: 1;
+  margin-right: 10px; /* Añade un margen derecho para separar los elementos */
 }
 
 .input-group input {
-  width: 100%;
+  width: calc(100% - 10px); /* Ajusta el ancho del campo de entrada */
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  opacity: 0.7; /* Ajusta la opacidad */
 }
 
 textarea {
   width: calc(100% - 16px); /* Ajusta el tamaño del textarea */
-  padding: 8px; /* Ajusta el padding del textarea */
+  padding: 8px;
   border: 1px solid transparent;
   border-radius: 5px;
   transition: border-color 0.3s ease-in-out, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   resize: none;
+  opacity: 0.7; /* Ajusta la opacidad */
 }
 
 textarea:hover,
@@ -62,7 +67,7 @@ textarea:focus {
 }
 
 .comment-item {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.5); /* Ajusta la opacidad de los comentarios */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -87,16 +92,19 @@ textarea:focus {
 .title {
   font-size: 24px;
   margin-bottom: 10px;
+  color: #fff; /* Color blanco para los títulos */
 }
 
 button {
-  padding: 10px 20px;
+  padding: 8px 16px; /* Ajusta el padding del botón */
+  font-size: 14px; /* Ajusta el tamaño de la fuente del botón */
   background-color: #3498db;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  opacity: 0.9; /* Ajusta la opacidad */
 }
 
 button:hover {
@@ -136,12 +144,25 @@ button:hover {
         newComment.classList.add('comment-item');
         newComment.innerHTML = '<p>' + commentText + '</p><span class="comment-info">Por: ' + userName + '</span>';
         document.querySelector('.comments-list').appendChild(newComment);
-        document.getElementById('userName').value = ''; // Limpiar el campo de nombre
-        document.getElementById('commentText').value = ''; // Limpiar el área de texto después de enviar el comentario
+        document.getElementById('userName').value = '';
+        document.getElementById('commentText').value = '';
+        adjustBackgroundHeight(); // Llama a la función para ajustar la altura del fondo
       } else {
         alert('Por favor, completa todos los campos antes de enviar el comentario.');
       }
     });
+
+    function adjustBackgroundHeight() {
+      var container = document.querySelector('.container');
+      var commentsList = document.querySelector('.comments-list');
+      var containerHeight = container.offsetHeight;
+      var commentsListHeight = commentsList.offsetHeight;
+      var newHeight = Math.max(containerHeight, commentsListHeight) + 100; // Agrega un margen adicional de 100px
+      document.body.style.minHeight = newHeight + 'px';
+    }
+
+    // Ajusta el fondo de la página inicialmente
+    adjustBackgroundHeight();
   </script>
 </body>
 </html>
